@@ -1,0 +1,28 @@
+{
+  "name": "Islamabad Elite Properties",
+  "short_name": "IEP",
+  "description": "Luxury properties for sale in Islamabad — F-6, F-7 & F-8",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0a0a",
+  "theme_color": "#C9A84C",
+  "lang": "en-PK",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
