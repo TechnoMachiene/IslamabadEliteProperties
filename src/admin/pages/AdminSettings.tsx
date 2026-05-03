@@ -1,5 +1,4 @@
 import { Database, Key, Shield } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { usePropertyStore } from "@/store/PropertyStoreContext";
 
 const AdminSettings = () => {
@@ -7,11 +6,6 @@ const AdminSettings = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Settings | IEP Admin</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="max-w-xl space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Settings</h1>

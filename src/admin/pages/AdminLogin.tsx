@@ -1,7 +1,6 @@
 import { useState, useEffect, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Building2, Eye, EyeOff, Lock } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { useAdminAuth } from "@/admin/context/AdminAuthContext";
 
 const AdminLogin = ({ urlMode = false }: { urlMode?: boolean }) => {
@@ -47,11 +46,6 @@ const AdminLogin = ({ urlMode = false }: { urlMode?: boolean }) => {
 
   return (
     <>
-      <Helmet>
-        <title>Admin Login | IEP</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
         <div className="w-full max-w-sm">
           {/* Brand */}

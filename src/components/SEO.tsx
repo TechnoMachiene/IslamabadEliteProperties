@@ -1,4 +1,6 @@
-import { Helmet } from "react-helmet-async";
+// NOTE: This component is legacy SPA/Vite code and is not used in Next.js App Router.
+// The app/ directory uses Next.js metadata API instead.
+// import { Helmet } from "react-helmet-async";
 
 export const SITE_URL = "https://islamabadelite.pk";
 export const SITE_NAME = "Islamabad Elite Properties";

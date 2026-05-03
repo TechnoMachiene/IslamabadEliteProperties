@@ -1,7 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ImagePlus, Plus, Trash2 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { usePropertyStore } from "@/store/PropertyStoreContext";
 import { cities, getCityBySlug } from "@/data/cities";
 import type { Property } from "@/data/properties";
@@ -126,11 +125,6 @@ const AdminPropertyForm = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{isEdit ? "Edit Property" : "Add Property"} | IEP Admin</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="max-w-4xl">
         {/* Header */}
         <div className="flex items-center gap-3 mb-7">

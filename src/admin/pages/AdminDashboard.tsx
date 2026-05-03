@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { BarChart3, Building2, Plus, Star, TrendingUp } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { usePropertyStore } from "@/store/PropertyStoreContext";
 import { cities } from "@/data/cities";
 
@@ -21,11 +20,6 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Dashboard | IEP Admin</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="max-w-6xl">
         <div className="flex items-center justify-between mb-8">
           <div>

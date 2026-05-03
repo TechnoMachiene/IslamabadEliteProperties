@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Edit2, Plus, Search, Star, Trash2 } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { usePropertyStore } from "@/store/PropertyStoreContext";
 import ConfirmModal from "@/admin/components/ConfirmModal";
 import { cities } from "@/data/cities";
@@ -50,11 +49,6 @@ const AdminProperties = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Properties | IEP Admin</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
       <div className="max-w-7xl">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">

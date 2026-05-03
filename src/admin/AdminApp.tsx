@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { AdminAuthProvider } from "@/admin/context/AdminAuthContext";
 import AdminGuard from "@/admin/components/AdminGuard";
 import AdminLayout from "@/admin/components/AdminLayout";
@@ -26,11 +25,6 @@ const Protected = ({ children }: { children: React.ReactNode }) => (
 
 const AdminApp = () => (
   <AdminAuthProvider>
-    {/* Prevent search engine indexing of every admin page */}
-    <Helmet>
-      <meta name="robots" content="noindex, nofollow" />
-    </Helmet>
-
     <Suspense fallback={<AdminLoader />}>
       <Routes>
         {/* Public admin routes */}
