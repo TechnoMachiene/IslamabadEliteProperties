@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-islamabad.webp";
-import heroImgSm from "@/assets/hero-islamabad-sm.webp";
 import HeroSearch from "./HeroSearch";
 
 /**
@@ -20,14 +18,14 @@ const Hero = () => (
   >
     {/* ── Background ────────────────────────────────────────── */}
     <img
-      src={heroImg}
-      srcSet={`${heroImgSm} 1024w, ${heroImg} 1920w`}
+      src="/hero-islamabad.webp"
+      srcSet="/hero-islamabad-sm.webp 1024w, /hero-islamabad.webp 1920w"
       sizes="100vw"
       alt="Luxury properties for sale in Islamabad with Margalla Hills in the background"
       className="absolute inset-0 w-full h-full object-cover object-center"
-      width={1920}
-      height={1080}
-      fetchpriority="high"
+      width="1920"
+      height="1080"
+      fetchPriority="high"
       decoding="async"
     />
 

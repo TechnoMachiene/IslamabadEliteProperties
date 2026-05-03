@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { cities } from "@/data/cities";
 import { citySectors, subSectors, priceRanges } from "@/data/properties";
@@ -9,7 +11,7 @@ const selectClass =
   "focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white/20 transition-all";
 
 const HeroSearch = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [citySlug,   setCitySlug]   = useState("");
   const [sector,     setSector]     = useState("");
   const [subSector,  setSubSector]  = useState("");
@@ -29,7 +31,7 @@ const HeroSearch = () => {
     if (subSector)  params.set("subSector", subSector);
     if (priceRange) params.set("price",     priceRange);
 
-    setTimeout(() => navigate(`/properties?${params.toString()}`), 80);
+    setTimeout(() => router.push(`/properties?${params.toString()}`), 80);
   };
 
   return (

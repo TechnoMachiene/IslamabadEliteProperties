@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 interface Props {
   property: Property;
-  onClick: (property: Property) => void;
+  onClick?: (property: Property) => void;
   index?: number;
 }
 
-const PropertyCard = ({ property, onClick, index = 0 }: Props) => {
+const PropertyCard = ({ property, onClick = () => {}, index = 0 }: Props) => {
   const [fav, setFav] = useState(() => {
     const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
     return favs.includes(property.id);

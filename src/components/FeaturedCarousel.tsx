@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Property } from "@/data/properties";
@@ -5,10 +7,10 @@ import { usePropertyStore } from "@/store/PropertyStoreContext";
 import PropertyCard from "./PropertyCard";
 
 interface Props {
-  onPropertyClick: (p: Property) => void;
+  onPropertyClick?: (p: Property) => void;
 }
 
-const FeaturedCarousel = ({ onPropertyClick }: Props) => {
+const FeaturedCarousel = ({ onPropertyClick = () => {} }: Props) => {
   const { properties } = usePropertyStore();
   const featured = properties.filter((p) => p.isFeatured);
   const scrollRef = useRef<HTMLDivElement>(null);

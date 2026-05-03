@@ -10,18 +10,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { PropertyStoreProvider } from "@/store/PropertyStoreContext";
 
 // Eagerly loaded (above-the-fold critical paths)
-import Index      from "./pages/Index.tsx";
-import Properties from "./pages/Properties.tsx";
-import NotFound   from "./pages/NotFound.tsx";
+import Index      from "./pages/Index";
+import Properties from "./pages/Properties";
+import NotFound   from "./pages/NotFound";
 
 // Lazy loaded — city/sector/property pages
-const CityPage       = lazy(() => import("./pages/CityPage.tsx"));
-const TwinCitiesPage = lazy(() => import("./pages/TwinCitiesPage.tsx"));
-const SectorPage     = lazy(() => import("./pages/SectorPage.tsx"));
-const PropertyPage   = lazy(() => import("./pages/PropertyPage.tsx"));
+const CityPage       = lazy(() => import("./pages/CityPage"));
+const TwinCitiesPage = lazy(() => import("./pages/TwinCitiesPage"));
+const SectorPage     = lazy(() => import("./pages/SectorPage"));
+const PropertyPage   = lazy(() => import("./pages/PropertyPage"));
 
 // Admin panel — fully code-split from public bundle
-const AdminApp = lazy(() => import("./admin/AdminApp.tsx"));
+const AdminApp = lazy(() => import("./admin/AdminApp"));
 
 const queryClient = new QueryClient();
 

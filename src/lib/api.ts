@@ -6,12 +6,12 @@ import { createClient } from "@supabase/supabase-js";
 import type { Property } from "@/data/properties";
 
 // Initialize Supabase client with public anon key (safe for frontend)
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn(
-    "⚠️ Missing Supabase credentials. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local"
+    "⚠️ Missing Supabase credentials. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local"
   );
 }
 
@@ -23,7 +23,7 @@ function adminToken(): string {
 }
 
 // Transform Supabase snake_case to camelCase Property type
-function transformProperty(row: any): Property {
+function transformProperty(row: Record<string, unknown>): Property {
   return {
     id: row.id || "",
     city: row.city || "",
@@ -65,8 +65,9 @@ export const api = {
 
         if (error) throw error;
         return (data || []).map(transformProperty);
-      } catch (error: any) {
-        console.error("Failed to fetch properties:", error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error("Failed to fetch properties:", message);
         return [];
       }
     },
@@ -82,8 +83,9 @@ export const api = {
 
         if (error) throw error;
         return data ? transformProperty(data) : null;
-      } catch (error: any) {
-        console.error(`Failed to fetch property ${id}:`, error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error(`Failed to fetch property ${id}:`, message);
         return null;
       }
     },
@@ -128,8 +130,9 @@ export const api = {
         if (error) throw error;
         console.log("✅ Property created:", newProperty?.id);
         return transformProperty(newProperty);
-      } catch (error: any) {
-        console.error("Failed to create property:", error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error("Failed to create property:", message);
         throw error;
       }
     },
@@ -144,7 +147,7 @@ export const api = {
       }
 
       try {
-        const updates: Record<string, any> = {};
+        const updates: Record<string, unknown> = {};
         
         if (data.city !== undefined) updates.city = data.city;
         if (data.title !== undefined) updates.title = data.title;
@@ -180,8 +183,9 @@ export const api = {
         if (error) throw error;
         console.log("✅ Property updated:", id);
         return transformProperty(updatedProperty);
-      } catch (error: any) {
-        console.error("Failed to update property:", error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error("Failed to update property:", message);
         throw error;
       }
     },
@@ -197,8 +201,9 @@ export const api = {
 
         if (error) throw error;
         console.log("✅ Property deleted:", id);
-      } catch (error: any) {
-        console.error("Failed to delete property:", error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error("Failed to delete property:", message);
         throw error;
       }
     },
@@ -208,7 +213,7 @@ export const api = {
     // Local password authentication (works with npm run dev)
     async login(password: string): Promise<{ token: string }> {
       try {
-        const expectedPassword = import.meta.env.VITE_ADMIN_PASSWORD || "3i2e1p123?";
+        const expectedPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "3i2e1p123?";
 
         if (password !== expectedPassword) {
           throw new Error("Incorrect password");
@@ -220,8 +225,9 @@ export const api = {
 
         console.log("✅ Admin authenticated");
         return { token };
-      } catch (error: any) {
-        console.error("Login failed:", error.message);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.error("Login failed:", message);
         throw error;
       }
     },

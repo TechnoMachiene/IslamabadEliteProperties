@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sectors } from "@/data/properties";
-import logo from "@/assets/logo.jpg";
 
 interface Props {
   visible: boolean;
@@ -15,7 +17,7 @@ interface Props {
  * search stays in normal flow there.
  */
 const StickySearchBar = ({ visible }: Props) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [sector, setSector] = useState("");
 
   const handleSearch = (e: React.FormEvent) => {
@@ -24,7 +26,7 @@ const StickySearchBar = ({ visible }: Props) => {
     const params = new URLSearchParams();
     if (sector) params.set("sector", sector);
     setTimeout(() => {
-      navigate(`/properties?${params.toString()}`);
+      router.push(`/properties?${params.toString()}`);
     }, 80);
   };
 
@@ -48,9 +50,9 @@ const StickySearchBar = ({ visible }: Props) => {
               className="flex items-center gap-4"
             >
               {/* Brand mark */}
-              <Link to="/" aria-label="Home" className="shrink-0">
+              <Link href="/" aria-label="Home" className="shrink-0">
                 <img
-                  src={logo}
+                  src="/logo.jpg"
                   alt="Islamabad Elite Properties"
                   className="h-8 w-auto object-contain rounded-sm"
                   width={32}
@@ -93,7 +95,7 @@ const StickySearchBar = ({ visible }: Props) => {
                 {["F-6", "F-7", "F-8"].map((s) => (
                   <Link
                     key={s}
-                    to={`/properties/${s.toLowerCase().replace("/", "-")}`}
+                    href={`/properties/${s.toLowerCase().replace("/", "-")}`}
                     className="text-sm text-muted-foreground hover:text-primary font-medium transition-colors"
                   >
                     {s}

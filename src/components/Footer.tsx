@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Phone, Mail, Facebook, Instagram } from "lucide-react";
-import nonchtechLogo from "@/assets/nonchtech-logo.png";
 
 const Footer = () => (
   <footer className="bg-charcoal text-primary-foreground">
@@ -28,20 +27,20 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/60">
-            <li><Link to="/properties/f-6" className="hover:text-primary transition-colors">Properties in F-6 Islamabad</Link></li>
-            <li><Link to="/properties/f-7" className="hover:text-primary transition-colors">Properties in F-7 Islamabad</Link></li>
-            <li><Link to="/properties/f-8" className="hover:text-primary transition-colors">Properties in F-8 Islamabad</Link></li>
-            <li><Link to="/properties" className="hover:text-primary transition-colors">All Properties</Link></li>
+            <li><Link href="/properties/f-6" className="hover:text-primary transition-colors">Properties in F-6 Islamabad</Link></li>
+            <li><Link href="/properties/f-7" className="hover:text-primary transition-colors">Properties in F-7 Islamabad</Link></li>
+            <li><Link href="/properties/f-8" className="hover:text-primary transition-colors">Properties in F-8 Islamabad</Link></li>
+            <li><Link href="/properties" className="hover:text-primary transition-colors">All Properties</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-semibold mb-4">Popular Searches</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/60">
-            <li><Link to="/properties/f-7/2" className="hover:text-primary transition-colors">Properties for Sale in F-7/2</Link></li>
-            <li><Link to="/properties/f-6/1" className="hover:text-primary transition-colors">Properties in F-6/1</Link></li>
-            <li><Link to="/properties/f-8/3" className="hover:text-primary transition-colors">F-8/3 Real Estate</Link></li>
-            <li><Link to="/properties/f-7/4" className="hover:text-primary transition-colors">F-7/4 Luxury Properties</Link></li>
+            <li><Link href="/properties/f-7/2" className="hover:text-primary transition-colors">Properties for Sale in F-7/2</Link></li>
+            <li><Link href="/properties/f-6/1" className="hover:text-primary transition-colors">Properties in F-6/1</Link></li>
+            <li><Link href="/properties/f-8/3" className="hover:text-primary transition-colors">F-8/3 Real Estate</Link></li>
+            <li><Link href="/properties/f-7/4" className="hover:text-primary transition-colors">F-7/4 Luxury Properties</Link></li>
           </ul>
         </div>
 
@@ -71,7 +70,7 @@ const Footer = () => (
           <div className="mt-6 flex items-center justify-center gap-2">
             <span className="text-xs text-primary-foreground/40">Built by</span>
             <a href="https://www.nonchtech.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
-              <img src={nonchtechLogo} alt="nonchtech - Web Development Company" className="h-14 w-auto invert" width={160} height={56} />
+              <img src="/nonchtech-logo.png" alt="nonchtech - Web Development Company" className="h-14 w-auto invert" width="160" height="56" />
             </a>
           </div>
         </div>

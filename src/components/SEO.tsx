@@ -1,6 +1,7 @@
-// NOTE: This component is legacy SPA/Vite code and is not used in Next.js App Router.
-// The app/ directory uses Next.js metadata API instead.
-// import { Helmet } from "react-helmet-async";
+// NOTE: This component is legacy SPA/Vite code and is DEPRECATED.
+// The app/ directory uses Next.js metadata API (via generateMetadata) instead.
+// This component is kept for backward compatibility but no longer renders anything.
+// All SEO handling is now done in src/app/ directory with generateMetadata functions.
 
 export const SITE_URL = "https://islamabadelite.pk";
 export const SITE_NAME = "Islamabad Elite Properties";
@@ -30,9 +31,9 @@ interface SEOProps {
 }
 
 /**
- * Centralised SEO head manager.
- * Renders exactly one of each meta tag per page.
- * Pass JSON-LD <script> blocks as children.
+ * DEPRECATED: Legacy SEO component - no longer functional.
+ * Use Next.js metadata API (generateMetadata) in the app/ directory instead.
+ * This component is kept as a stub to prevent import errors in legacy code.
  */
 const SEO = ({
   title,
@@ -45,44 +46,9 @@ const SEO = ({
   keywords,
   children,
 }: SEOProps) => {
-  const resolvedAlt = ogImageAlt || title;
-
-  return (
-    <Helmet>
-      {/* ── Primary ── */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <meta name="robots" content={robots} />
-      <meta name="publisher" content={SITE_NAME} />
-      <link rel="canonical" href={canonical} />
-
-      {/* ── Open Graph ── */}
-      <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={resolvedAlt} />
-      <meta property="og:locale" content="en_PK" />
-      <meta property="article:publisher" content={FB_PAGE} />
-
-      {/* ── Twitter Card ── */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={TWITTER_HANDLE} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={resolvedAlt} />
-
-      {/* ── Page-specific JSON-LD ── */}
-      {children}
-    </Helmet>
-  );
+  // This component is deprecated and returns null.
+  // All SEO is handled via Next.js generateMetadata in src/app/ routes.
+  return null;
 };
 
 export default SEO;

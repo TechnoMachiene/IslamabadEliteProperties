@@ -43,7 +43,7 @@ export const AdminAuthProvider = ({ children }: { children: ReactNode }) => {
     } catch (err) {
       // Fallback: Check password locally against env variable (works with npm run dev)
       // This is safe because the actual password validation happens server-side in production
-      const expectedPassword = import.meta.env.VITE_ADMIN_PASSWORD || "3i2e1p123?";
+      const expectedPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "3i2e1p123?";
       if (password === expectedPassword) {
         // Create a temporary token for dev mode
         const devToken = `dev-token-${Date.now()}`;

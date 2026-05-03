@@ -53,7 +53,7 @@ const SectorPage = ({ citySlug, legacySector }: Props) => {
       if (activeSubName && p.subSector !== activeSubName) return false;
       return true;
     });
-  }, [citySlug, sector.name, activeSubName]);
+  }, [properties, citySlug, sector.name, activeSubName]);
 
   const seoDesc = activeSubName
     ? `Browse ${filtered.length}+ properties for sale in ${activeSubName} ${city.name}. Luxury villas, houses & apartments. Expert agents & virtual tours.`

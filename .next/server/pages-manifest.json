@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/CityPage": "pages/CityPage.js",
+  "/Index": "pages/Index.js",
+  "/NotFound": "pages/NotFound.js",
+  "/Properties": "pages/Properties.js",
+  "/PropertyPage": "pages/PropertyPage.js",
+  "/SectorPage": "pages/SectorPage.js",
+  "/TwinCitiesPage": "pages/TwinCitiesPage.js",
+  "/_document": "pages/_document.js"
+}

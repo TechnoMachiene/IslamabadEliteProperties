@@ -1,18 +1,20 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.jpg";
 import { cities } from "@/data/cities";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen]   = useState(false);
   const [citiesOpen, setCitiesOpen]   = useState(false);
   const citiesRef                     = useRef<HTMLDivElement>(null);
-  const location                      = useLocation();
+  const pathname                      = usePathname();
 
   const isActive = (to: string) =>
-    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
+    to === "/" ? pathname === "/" : pathname.startsWith(to);
 
   // Lock body scroll when drawer is open
   useEffect(() => {
@@ -21,7 +23,7 @@ const Navbar = () => {
   }, [drawerOpen]);
 
   // Close drawer on route change
-  useEffect(() => { setDrawerOpen(false); setCitiesOpen(false); }, [location.pathname]);
+  useEffect(() => { setDrawerOpen(false); setCitiesOpen(false); }, [pathname]);
 
   // Close cities dropdown on outside click
   useEffect(() => {
@@ -51,7 +53,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Islamabad Elite Properties – Home">
-            <img src={logo} alt="Islamabad Elite Properties" className="h-8 sm:h-10 md:h-12 w-auto object-contain rounded-sm" width={48} height={48} loading="eager" />
+            <img src="/logo.jpg" alt="Islamabad Elite Properties" className="h-8 sm:h-10 md:h-12 w-auto object-contain rounded-sm" width="48" height="48" loading="eager" />
             <span className="sm:hidden text-sm font-display font-bold text-gradient-gold tracking-wide">IEP</span>
             <span className="hidden sm:block text-base md:text-lg font-display font-bold text-gradient-gold leading-tight">
               Islamabad Elite<br />
@@ -155,7 +157,7 @@ const Navbar = () => {
               {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                 <Link to="/" onClick={() => setDrawerOpen(false)} className="flex items-center gap-2.5" aria-label="Home">
-                  <img src={logo} alt="IEP" className="h-8 w-auto object-contain rounded-sm" width={32} height={32} />
+                  <img src="/logo.jpg" alt="IEP" className="h-8 w-auto object-contain rounded-sm" width="32" height="32" />
                   <span className="text-sm font-display font-bold text-gradient-gold">Islamabad Elite</span>
                 </Link>
                 <button onClick={() => setDrawerOpen(false)} className="p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Close menu">

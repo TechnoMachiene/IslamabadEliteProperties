@@ -1,7 +1,7 @@
 "use client";
 
 import { Property } from "@/data/properties";
-import { WhatsApp, Phone } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 
 interface PropertyContactClientProps {
   property: Property;
@@ -29,7 +29,7 @@ export default function PropertyContactClient({ property }: PropertyContactClien
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-foreground text-accent font-medium hover:opacity-90 transition-opacity"
         >
-          <WhatsApp className="w-5 h-5" />
+          <MessageCircle className="w-5 h-5" />
           WhatsApp Agent
         </a>
         <a

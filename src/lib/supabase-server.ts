@@ -38,8 +38,8 @@ function transformRow(row: Record<string, unknown>): Property {
     type: ((row.type as string) || "House") as Property["type"],
     yearBuilt: Number(row.year_built ?? row.yearBuilt) || new Date().getFullYear(),
     mapCoords: {
-      lat: Number(row.map_lat ?? (row.mapCoords as any)?.lat ?? 33.7194),
-      lng: Number(row.map_lng ?? (row.mapCoords as any)?.lng ?? 73.0551),
+      lat: Number(row.map_lat ?? (row.mapCoords as Record<string, unknown>)?.lat ?? 33.7194),
+      lng: Number(row.map_lng ?? (row.mapCoords as Record<string, unknown>)?.lng ?? 73.0551),
     },
     agentPhone: (row.agent_phone as string) || (row.agentPhone as string) || "",
   };

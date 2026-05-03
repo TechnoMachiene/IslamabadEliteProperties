@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const FinalCTA = () => (
   <section
@@ -48,7 +48,7 @@ const FinalCTA = () => (
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/properties"
+            href="/properties"
             className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-gold text-primary-foreground font-semibold text-sm transition-transform hover:scale-105 active:scale-100"
           >
             Browse All Properties

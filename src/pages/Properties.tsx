@@ -43,7 +43,7 @@ const Properties = () => {
       }
       return true;
     });
-  }, [citySlug, sector, subSector, priceIdx]);
+  }, [properties, citySlug, sector, subSector, priceIdx]);
 
   const cityName  = cities.find((c) => c.slug === citySlug)?.name ?? "";
   const seoTitle  = subSector

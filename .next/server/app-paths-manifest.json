@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/admin/[...slug]/page": "app/admin/[...slug]/page.js",
+  "/[city]/[sector]/page": "app/[city]/[sector]/page.js",
+  "/[city]/[sector]/[sub]/page": "app/[city]/[sector]/[sub]/page.js",
+  "/[city]/page": "app/[city]/page.js",
+  "/properties/page": "app/properties/page.js",
+  "/page": "app/page.js",
+  "/property/[slug]/page": "app/property/[slug]/page.js"
+}
