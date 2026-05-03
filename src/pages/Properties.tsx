@@ -12,6 +12,7 @@ import { usePropertyStore } from "@/store/PropertyStoreContext";
 const Properties = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selected, setSelected] = useState<Property | null>(null);
+  const [expandedListings, setExpandedListings] = useState(false);
   const { properties } = usePropertyStore();
 
   const citySlug  = searchParams.get("city")      || "";
@@ -191,9 +192,27 @@ const Properties = () => {
           {/* Crawlable links */}
           {filtered.length > 0 && (
             <nav aria-label="Property listings" className="mt-8 pt-6 border-t border-border">
-              <h2 className="text-lg font-display font-semibold text-foreground mb-3">All Listed Properties</h2>
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-lg font-display font-semibold text-foreground">All Listed Properties</h2>
+                {filtered.length > 8 && !expandedListings && (
+                  <button
+                    onClick={() => setExpandedListings(true)}
+                    className="text-primary font-medium hover:underline flex items-center gap-1 transition-colors"
+                  >
+                    See more <span className="text-xl leading-none">›</span>
+                  </button>
+                )}
+                {expandedListings && filtered.length > 8 && (
+                  <button
+                    onClick={() => setExpandedListings(false)}
+                    className="text-primary font-medium hover:underline flex items-center gap-1 transition-colors"
+                  >
+                    Show less <span className="text-xl leading-none rotate-180 inline-block">›</span>
+                  </button>
+                )}
+              </div>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {filtered.map((p) => (
+                {filtered.slice(0, expandedListings ? undefined : 8).map((p) => (
                   <li key={p.id}>
                     <Link to={`/property/${generatePropertySlug(p)}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                       {p.title} — {p.area} {p.areaUnit} {p.type} in {p.subSector}, {cities.find(c => c.slug === p.city)?.name}
