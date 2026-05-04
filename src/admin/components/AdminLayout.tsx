@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { useState, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {

@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Building2, Shield, TrendingUp, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const stats = [
   { icon: Building2, value: "500+", label: "Properties Sold" },
@@ -82,7 +84,7 @@ const SectorHighlights = () => (
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed mb-5">{s.desc}</p>
             <Link
-              to={`/properties/${s.slug}`}
+              href={`/islamabad/${s.slug}`}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all duration-200"
               aria-label={`Browse properties in ${s.sector} Islamabad`}
             >

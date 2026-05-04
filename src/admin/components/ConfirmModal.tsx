@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 

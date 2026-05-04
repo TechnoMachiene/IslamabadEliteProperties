@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { Link } from "react-router-dom";
 import { BarChart3, Building2, Plus, Star, TrendingUp } from "lucide-react";
 import { usePropertyStore } from "@/store/PropertyStoreContext";

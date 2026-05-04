@@ -8,11 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cities } from "@/data/cities";
 
 const Navbar = () => {
-  const [drawerOpen, setDrawerOpen]   = useState(false);
-  const [citiesOpen, setCitiesOpen]   = useState(false);
-  const citiesRef                     = useRef<HTMLDivElement>(null);
-  const pathname                      = usePathname();
-
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [citiesOpen, setCitiesOpen] = useState(false);
+  const citiesRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname() || "";
   const isActive = (to: string) =>
     to === "/" ? pathname === "/" : pathname.startsWith(to);
 
@@ -52,7 +51,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Islamabad Elite Properties – Home">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Islamabad Elite Properties – Home">
             <img src="/logo.jpg" alt="Islamabad Elite Properties" className="h-8 sm:h-10 md:h-12 w-auto object-contain rounded-sm" width="48" height="48" loading="eager" />
             <span className="sm:hidden text-sm font-display font-bold text-gradient-gold tracking-wide">IEP</span>
             <span className="hidden sm:block text-base md:text-lg font-display font-bold text-gradient-gold leading-tight">
@@ -66,7 +65,7 @@ const Navbar = () => {
             {navLinks.map((l) => (
               <Link
                 key={l.to}
-                to={l.to}
+                href={l.to}
                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive(l.to) ? "text-primary" : "text-muted-foreground"}`}
               >
                 {l.label}
@@ -97,7 +96,7 @@ const Navbar = () => {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-background border border-border rounded-xl shadow-xl overflow-hidden z-10"
                   >
                     <Link
-                      to="/twin-cities"
+                      href="/twin-cities"
                       className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-primary transition-colors border-b border-border"
                     >
                       Twin Cities Overview
@@ -105,7 +104,7 @@ const Navbar = () => {
                     {cities.map((city) => (
                       <Link
                         key={city.slug}
-                        to={`/${city.slug}`}
+                        href={`/${city.slug}`}
                         className={`flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors hover:bg-muted ${
                           isActive(`/${city.slug}`) ? "text-primary bg-primary/5" : "text-foreground"
                         }`}
@@ -156,7 +155,7 @@ const Navbar = () => {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <Link to="/" onClick={() => setDrawerOpen(false)} className="flex items-center gap-2.5" aria-label="Home">
+                <Link href="/" onClick={() => setDrawerOpen(false)} className="flex items-center gap-2.5" aria-label="Home">
                   <img src="/logo.jpg" alt="IEP" className="h-8 w-auto object-contain rounded-sm" width="32" height="32" />
                   <span className="text-sm font-display font-bold text-gradient-gold">Islamabad Elite</span>
                 </Link>
@@ -170,7 +169,7 @@ const Navbar = () => {
                 <ul className="flex flex-col space-y-1">
                   {navLinks.map((l) => (
                     <li key={l.to}>
-                      <Link to={l.to} onClick={() => setDrawerOpen(false)} className={`flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium transition-colors ${isActive(l.to) ? "text-primary bg-primary/8 font-semibold" : "text-foreground hover:text-primary hover:bg-muted"}`}>
+                      <Link href={l.to} onClick={() => setDrawerOpen(false)} className={`flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium transition-colors ${isActive(l.to) ? "text-primary bg-primary/8 font-semibold" : "text-foreground hover:text-primary hover:bg-muted"}`}>
                         {l.label}
                       </Link>
                     </li>
@@ -179,13 +178,13 @@ const Navbar = () => {
                   {/* Cities section */}
                   <li>
                     <p className="px-4 pt-4 pb-2 text-xs font-semibold text-muted-foreground uppercase tracking-widest">Cities</p>
-                    <Link to="/twin-cities" onClick={() => setDrawerOpen(false)} className="flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
+                    <Link href="/twin-cities" onClick={() => setDrawerOpen(false)} className="flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
                       Twin Cities Overview
                     </Link>
                     {cities.map((city) => (
                       <Link
                         key={city.slug}
-                        to={`/${city.slug}`}
+                        href={`/${city.slug}`}
                         onClick={() => setDrawerOpen(false)}
                         className={`flex items-center justify-between w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium transition-colors ${isActive(`/${city.slug}`) ? "text-primary bg-primary/8 font-semibold" : "text-foreground hover:text-primary hover:bg-muted"}`}
                       >

@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { useState, type FormEvent, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ImagePlus, Plus, Trash2 } from "lucide-react";

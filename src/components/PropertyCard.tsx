@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Heart, MapPin, Bed, Bath, Car } from "lucide-react";
 import { Property, smallImageMap } from "@/data/properties";

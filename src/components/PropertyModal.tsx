@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight, Bed, Bath, Car, Calendar, Phone } from "lucide-react";
 import { Property } from "@/data/properties";

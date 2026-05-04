@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Edit2, Plus, Search, Star, Trash2 } from "lucide-react";

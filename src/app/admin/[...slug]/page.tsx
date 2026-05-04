@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
+import AdminRoot from "@/admin/AdminRoot";
 
 export default function AdminCatchAll() {
-  notFound();
+  return <AdminRoot />;
 }

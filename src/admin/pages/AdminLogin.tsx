@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { useState, useEffect, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Building2, Eye, EyeOff, Lock } from "lucide-react";

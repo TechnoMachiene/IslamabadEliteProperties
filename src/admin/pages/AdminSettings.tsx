@@ -1,3 +1,5 @@
+﻿"use client";
+
 import { Database, Key, Shield } from "lucide-react";
 import { usePropertyStore } from "@/store/PropertyStoreContext";
 
