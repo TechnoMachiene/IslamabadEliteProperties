@@ -3,9 +3,10 @@
 // This component is kept for backward compatibility but no longer renders anything.
 // All SEO handling is now done in src/app/ directory with generateMetadata functions.
 
-export const SITE_URL = "https://www.islamabadeliteproperties.com";
-export const SITE_NAME = "Islamabad Elite Properties";
-export const OG_IMAGE_DEFAULT = `${SITE_URL}/og-image.jpg`;
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
+
+export { SITE_NAME, SITE_URL };
+export const OG_IMAGE_DEFAULT = OG_IMAGE;
 export const TWITTER_HANDLE = "@islamabadelite";
 export const FB_PAGE = "https://www.facebook.com/islamabadeliteproperties";
 

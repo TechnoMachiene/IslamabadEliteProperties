@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { SITEMAP_URL, SITE_URL } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api"],
       },
     ],
-    sitemap: "https://www.islamabadeliteproperties.com/sitemap.xml",
-    host: "https://www.islamabadeliteproperties.com",
+    sitemap: SITEMAP_URL,
+    host: SITE_URL,
   };
 }

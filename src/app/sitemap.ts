@@ -2,8 +2,7 @@ import { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
 import { getProperties } from "@/lib/supabase-server";
 import { generatePropertySlug } from "@/data/properties";
-
-const SITE_URL = "https://www.islamabadeliteproperties.com";
+import { SITE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const properties = await getProperties();

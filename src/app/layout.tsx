@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
-export const SITE_URL = "https://www.islamabadeliteproperties.com";
-export const SITE_NAME = "Islamabad Elite Properties";
-export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+export { OG_IMAGE, SITE_NAME, SITE_URL };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

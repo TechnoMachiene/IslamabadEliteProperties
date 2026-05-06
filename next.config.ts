@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "hmgmstsjuqfazrhioady.supabase.co" },
+      { protocol: "https", hostname: "islamabadeliteproperties.com" },
       { protocol: "https", hostname: "www.islamabadeliteproperties.com" },
     ],
     formats: ["image/avif", "image/webp"],
@@ -13,27 +14,27 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // apex → www
+      // www -> apex
       {
         source: "/:path*",
-        has: [{ type: "host", value: "islamabadeliteproperties.com" }],
-        destination: "https://www.islamabadeliteproperties.com/:path*",
+        has: [{ type: "host", value: "www.islamabadeliteproperties.com" }],
+        destination: "https://islamabadeliteproperties.com/:path*",
         permanent: true,
       },
-      // old .pk domain → new .com
+      // old .pk domain -> new .com
       {
         source: "/:path*",
         has: [{ type: "host", value: "islamabadelite.pk" }],
-        destination: "https://www.islamabadeliteproperties.com/:path*",
+        destination: "https://islamabadeliteproperties.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.islamabadelite.pk" }],
-        destination: "https://www.islamabadeliteproperties.com/:path*",
+        destination: "https://islamabadeliteproperties.com/:path*",
         permanent: true,
       },
-      // legacy /properties/f-x → /islamabad/f-x
+      // legacy /properties/f-x -> /islamabad/f-x
       { source: "/twin-cities", destination: "/", permanent: true },
       { source: "/properties/f-6", destination: "/islamabad/f-6", permanent: true },
       { source: "/properties/f-7", destination: "/islamabad/f-7", permanent: true },
