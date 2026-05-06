@@ -96,7 +96,7 @@ const Navbar = () => {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-background border border-border rounded-xl shadow-xl overflow-hidden z-10"
                   >
                     <Link
-                      href="/twin-cities"
+                      href="/"
                       className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-primary transition-colors border-b border-border"
                     >
                       Twin Cities Overview
@@ -178,7 +178,7 @@ const Navbar = () => {
                   {/* Cities section */}
                   <li>
                     <p className="px-4 pt-4 pb-2 text-xs font-semibold text-muted-foreground uppercase tracking-widest">Cities</p>
-                    <Link href="/twin-cities" onClick={() => setDrawerOpen(false)} className="flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
+                    <Link href="/" onClick={() => setDrawerOpen(false)} className="flex items-center w-full min-h-[48px] px-4 py-3 rounded-xl text-base font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-colors">
                       Twin Cities Overview
                     </Link>
                     {cities.map((city) => (

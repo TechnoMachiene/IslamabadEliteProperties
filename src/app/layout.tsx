@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 
@@ -53,10 +53,25 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
   },
   alternates: { canonical: SITE_URL },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
   other: {
     "geo.region": "PK-IS",
     "geo.placename": "Islamabad",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#C9A84C" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -71,7 +86,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="icon" type="image/jpeg" href="/logo.jpg" />
         <link rel="apple-touch-icon" href="/logo.jpg" />
-        <link rel="dns-prefetch" href="https://www.openstreetmap.org" />
       </head>
       <body>
         <Providers>{children}</Providers>

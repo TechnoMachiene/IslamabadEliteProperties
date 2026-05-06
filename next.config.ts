@@ -34,6 +34,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // legacy /properties/f-x → /islamabad/f-x
+      { source: "/twin-cities", destination: "/", permanent: true },
       { source: "/properties/f-6", destination: "/islamabad/f-6", permanent: true },
       { source: "/properties/f-7", destination: "/islamabad/f-7", permanent: true },
       { source: "/properties/f-8", destination: "/islamabad/f-8", permanent: true },

@@ -35,7 +35,7 @@ export async function generateMetadata({
   if (!city || !sector || !subSector) return {};
 
   const canonical = `${SITE_URL}/${citySlug}/${sectorSlug}/${subSlug}`;
-  const title = `${subSector.name} Properties for Sale in ${city.name} | Islamabad Elite Properties`;
+  const title = `${subSector.name} Properties for Sale in ${city.name}`;
   const description = `Browse luxury properties for sale in ${subSector.name} ${city.name}. Verified villas, houses & apartments with expert agents & virtual tours.`;
 
   return {

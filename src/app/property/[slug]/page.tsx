@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getProperties, getPropertyBySlug } from "@/lib/supabase-server";
 import { generatePropertySlug, properties as staticProperties } from "@/data/properties";
+import { getCityBySlug } from "@/data/cities";
 import { SITE_URL, SITE_NAME } from "../../layout";
 import PropertyContactClient from "@/components/PropertyContactClient";
 
@@ -25,8 +26,8 @@ export async function generateMetadata({
 
   const canonical = `${SITE_URL}/property/${slug}`;
   const ogImage = `${SITE_URL}${property.images[0]}`;
-  const title = `${property.title} – ${property.subSector} | ${SITE_NAME}`;
-  const description = `${property.area} ${property.areaUnit} ${property.type.toLowerCase()} for sale in ${property.subSector}. ${property.bedrooms} bed · ${property.bathrooms} bath · PKR ${property.priceFormatted}. ${property.description.slice(0, 80)}.`;
+  const title = `${property.title} - ${property.subSector}`;
+  const description = `${property.area} ${property.areaUnit} ${property.type.toLowerCase()} for sale in ${property.subSector}. ${property.bedrooms} bed Â· ${property.bathrooms} bath Â· PKR ${property.priceFormatted}. ${property.description.slice(0, 80)}.`;
 
   return {
     title,
@@ -65,6 +66,12 @@ export default async function PropertyPage({
   const canonicalUrl = `${SITE_URL}/property/${slug}`;
   const citySlug = property.city;
   const sectorSlug = property.sector.toLowerCase().replace(/\s+/g, "-");
+  const cityInfo = getCityBySlug(citySlug);
+  const sectorInfo = cityInfo?.sectors.find((s) => s.slug === sectorSlug);
+  const subSectorSlug = sectorInfo?.subSectors.find((ss) => ss.name === property.subSector)?.slug;
+  const subSectorUrl = subSectorSlug
+    ? `${SITE_URL}/${citySlug}/${sectorSlug}/${subSectorSlug}`
+    : `${SITE_URL}/${citySlug}/${sectorSlug}`;
 
   const listingSchema = {
     "@context": "https://schema.org",
@@ -93,7 +100,6 @@ export default async function PropertyPage({
       unitText: property.areaUnit,
     },
     image: `${SITE_URL}${property.images[0]}`,
-    datePosted: "2025-01-01",
     offers: {
       "@type": "Offer",
       price: property.price,
@@ -114,7 +120,7 @@ export default async function PropertyPage({
       { "@type": "ListItem", position: 1, name: "Home",              item: SITE_URL },
       { "@type": "ListItem", position: 2, name: "Properties",        item: `${SITE_URL}/properties` },
       { "@type": "ListItem", position: 3, name: property.sector,     item: `${SITE_URL}/${citySlug}/${sectorSlug}` },
-      { "@type": "ListItem", position: 4, name: property.subSector,  item: `${SITE_URL}/${citySlug}/${sectorSlug}` },
+      { "@type": "ListItem", position: 4, name: property.subSector,  item: subSectorUrl },
       { "@type": "ListItem", position: 5, name: property.title,      item: canonicalUrl },
     ],
   };
@@ -157,12 +163,12 @@ export default async function PropertyPage({
 
           {/* H1 */}
           <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">
-            {property.title} – {property.area} {property.areaUnit} {property.type} for Sale in{" "}
+            {property.title} â€“ {property.area} {property.areaUnit} {property.type} for Sale in{" "}
             {property.subSector}
           </h1>
           <p className="text-muted-foreground mb-8">
-            PKR {property.priceFormatted} · {property.subSector} ·{" "}
-            {property.bedrooms} Beds · {property.bathrooms} Baths · {property.area} {property.areaUnit}
+            PKR {property.priceFormatted} Â· {property.subSector} Â·{" "}
+            {property.bedrooms} Beds Â· {property.bathrooms} Baths Â· {property.area} {property.areaUnit}
           </p>
 
           {/* Images */}
@@ -176,7 +182,7 @@ export default async function PropertyPage({
               >
                 <img
                   src={img}
-                  alt={`${property.title} in ${property.subSector} – Photo ${i + 1}`}
+                  alt={`${property.title} in ${property.subSector} â€“ Photo ${i + 1}`}
                   loading={i === 0 ? "eager" : "lazy"}
                   fetchPriority={i === 0 ? "high" : "auto"}
                   className="w-full h-full object-cover aspect-[4/3]"
@@ -227,10 +233,10 @@ export default async function PropertyPage({
             </div>
           </section>
 
-          {/* CTA — client component handles WhatsApp link */}
+          {/* CTA â€” client component handles WhatsApp link */}
           <PropertyContactClient property={property} />
 
-          {/* Related properties — SSR links */}
+          {/* Related properties â€” SSR links */}
           {related.length > 0 && (
             <section className="mb-12">
               <h2 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4">
@@ -243,7 +249,7 @@ export default async function PropertyPage({
                     href={`/property/${generatePropertySlug(rp)}`}
                     className="px-4 py-3 rounded-xl bg-card border border-border text-foreground text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
                   >
-                    {rp.title} – {rp.subSector} →
+                    {rp.title} â€“ {rp.subSector} â†’
                   </Link>
                 ))}
               </div>
@@ -256,10 +262,10 @@ export default async function PropertyPage({
               Explore Islamabad Sectors
             </h2>
             <div className="flex flex-wrap gap-3">
-              <Link href="/islamabad/f-6" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-6 →</Link>
-              <Link href="/islamabad/f-7" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-7 →</Link>
-              <Link href="/islamabad/f-8" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-8 →</Link>
-              <Link href="/rawalpindi/bahria-town" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Bahria Town Properties →</Link>
+              <Link href="/islamabad/f-6" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-6 â†’</Link>
+              <Link href="/islamabad/f-7" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-7 â†’</Link>
+              <Link href="/islamabad/f-8" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-8 â†’</Link>
+              <Link href="/rawalpindi/bahria-town" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Bahria Town Properties â†’</Link>
             </div>
           </section>
         </div>

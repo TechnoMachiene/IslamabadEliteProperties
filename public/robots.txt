@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
 
-Sitemap: https://islamabadelite.pk/sitemap.xml
+Sitemap: https://www.islamabadeliteproperties.com/sitemap.xml

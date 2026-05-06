@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { getCityBySlug, cities } from "@/data/cities";
 import { getPropertiesByCity } from "@/lib/supabase-server";
 import { generatePropertySlug } from "@/data/properties";
-import { SITE_URL, SITE_NAME } from "../layout";
+import { SITE_URL } from "../layout";
 import PropertyGridClient from "@/components/PropertyGridClient";
 
 export const revalidate = 3600;
@@ -25,7 +25,7 @@ export async function generateMetadata({
   const city = getCityBySlug(citySlug);
   if (!city) return {};
   const canonical = `${SITE_URL}/${citySlug}`;
-  const title = `Luxury Properties for Sale in ${city.name} | ${SITE_NAME}`;
+  const title = `Luxury Properties for Sale in ${city.name}`;
   const description = `Browse verified luxury properties for sale in ${city.name}. Premium villas, houses & apartments in ${city.sectors.map((s) => s.name).join(", ")}. Expert agents & best prices.`;
   return {
     title,

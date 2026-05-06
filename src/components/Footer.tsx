@@ -27,9 +27,9 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/60">
-            <li><Link href="/properties/f-6" className="hover:text-primary transition-colors">Properties in F-6 Islamabad</Link></li>
-            <li><Link href="/properties/f-7" className="hover:text-primary transition-colors">Properties in F-7 Islamabad</Link></li>
-            <li><Link href="/properties/f-8" className="hover:text-primary transition-colors">Properties in F-8 Islamabad</Link></li>
+            <li><Link href="/islamabad/f-6" className="hover:text-primary transition-colors">Properties in F-6 Islamabad</Link></li>
+            <li><Link href="/islamabad/f-7" className="hover:text-primary transition-colors">Properties in F-7 Islamabad</Link></li>
+            <li><Link href="/islamabad/f-8" className="hover:text-primary transition-colors">Properties in F-8 Islamabad</Link></li>
             <li><Link href="/properties" className="hover:text-primary transition-colors">All Properties</Link></li>
           </ul>
         </div>
@@ -37,10 +37,10 @@ const Footer = () => (
         <div>
           <h4 className="font-semibold mb-4">Popular Searches</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/60">
-            <li><Link href="/properties/f-7/2" className="hover:text-primary transition-colors">Properties for Sale in F-7/2</Link></li>
-            <li><Link href="/properties/f-6/1" className="hover:text-primary transition-colors">Properties in F-6/1</Link></li>
-            <li><Link href="/properties/f-8/3" className="hover:text-primary transition-colors">F-8/3 Real Estate</Link></li>
-            <li><Link href="/properties/f-7/4" className="hover:text-primary transition-colors">F-7/4 Luxury Properties</Link></li>
+            <li><Link href="/islamabad/f-7/2" className="hover:text-primary transition-colors">Properties for Sale in F-7/2</Link></li>
+            <li><Link href="/islamabad/f-6/1" className="hover:text-primary transition-colors">Properties in F-6/1</Link></li>
+            <li><Link href="/islamabad/f-8/3" className="hover:text-primary transition-colors">F-8/3 Real Estate</Link></li>
+            <li><Link href="/islamabad/f-7/4" className="hover:text-primary transition-colors">F-7/4 Luxury Properties</Link></li>
           </ul>
         </div>
 
@@ -53,7 +53,7 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 flex-shrink-0" />
-              <a href="mailto:info@islamabadelite.pk" className="hover:text-primary">info@islamabadelite.pk</a>
+              <a href="mailto:info@islamabadeliteproperties.com" className="hover:text-primary">info@islamabadeliteproperties.com</a>
             </li>
           </ul>
         </div>

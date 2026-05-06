@@ -71,11 +71,6 @@ const websiteSchema = {
   "@type": "WebSite",
   name: SITE_NAME,
   url: SITE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/properties?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const faqSchema = {
@@ -116,6 +111,14 @@ const featuredProps = properties.filter((p) => p.isFeatured).slice(0, 6);
 export default function HomePage() {
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/hero-islamabad.webp"
+        imageSrcSet="/hero-islamabad-sm.webp 1024w, /hero-islamabad.webp 1920w"
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -145,10 +148,10 @@ export default function HomePage() {
               <p className="text-primary text-xs font-medium tracking-[0.2em] uppercase mb-3">
                 Islamabad's Premier Real Estate Agency
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-foreground leading-tight mb-6">
                 Luxury Properties for Sale in{" "}
                 <span className="text-gradient-gold">Twin Cities</span>
-              </h1>
+              </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Islamabad Elite Properties is Pakistan's most trusted luxury real estate agency, specialising
                 in premium houses, villas and apartments for sale in Islamabad's F-6, F-7 and F-8 sectors, as
@@ -164,33 +167,38 @@ export default function HomePage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
               {islamabad.sectors.map((sector) => (
-                <Link
+                <div
                   key={sector.slug}
-                  href={`/islamabad/${sector.slug}`}
-                  className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
+                  className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
                 >
-                  <h3 className="text-xl font-display font-bold text-gradient-gold mb-2">
-                    {sector.name} Properties
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    {sector.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {sector.subSectors.map((ss) => (
-                      <Link
-                        key={ss.slug}
-                        href={`/islamabad/${sector.slug}/${ss.slug}`}
-                        className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {ss.name}
-                      </Link>
-                    ))}
+                  <Link
+                    href={`/islamabad/${sector.slug}`}
+                    className="absolute inset-0 z-10 rounded-2xl"
+                    aria-label={`Browse ${sector.name} properties in Islamabad`}
+                  />
+                  <div className="relative z-20 pointer-events-none">
+                    <h3 className="text-xl font-display font-bold text-gradient-gold mb-2">
+                      {sector.name} Properties
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {sector.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4 pointer-events-auto">
+                      {sector.subSectors.map((ss) => (
+                        <Link
+                          key={ss.slug}
+                          href={`/islamabad/${sector.slug}/${ss.slug}`}
+                          className="relative z-30 text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                          {ss.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                      Browse {sector.name} <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                    Browse {sector.name} <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
+                </div>
               ))}
             </div>
 
@@ -200,21 +208,27 @@ export default function HomePage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {rawalpindi.sectors.map((sector) => (
-                <Link
+                <div
                   key={sector.slug}
-                  href={`/rawalpindi/${sector.slug}`}
-                  className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
+                  className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
                 >
-                  <h3 className="text-xl font-display font-bold text-gradient-gold mb-2">
-                    {sector.name} Properties
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                    {sector.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                    View Properties <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
+                  <Link
+                    href={`/rawalpindi/${sector.slug}`}
+                    className="absolute inset-0 z-10 rounded-2xl"
+                    aria-label={`Browse ${sector.name} properties in Rawalpindi`}
+                  />
+                  <div className="relative z-20 pointer-events-none">
+                    <h3 className="text-xl font-display font-bold text-gradient-gold mb-2">
+                      {sector.name} Properties
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {sector.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                      View Properties <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

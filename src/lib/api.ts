@@ -15,7 +15,8 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabase =
+  supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 function adminToken(): string {
@@ -58,6 +59,8 @@ export const api = {
     // Get all properties
     async list(): Promise<Property[]> {
       try {
+        if (!supabase) return [];
+
         const { data, error } = await supabase
           .from("properties")
           .select("*")
@@ -75,6 +78,8 @@ export const api = {
     // Get single property
     async get(id: string): Promise<Property | null> {
       try {
+        if (!supabase) return null;
+
         const { data, error } = await supabase
           .from("properties")
           .select("*")
@@ -98,6 +103,10 @@ export const api = {
       }
 
       try {
+        if (!supabase) {
+          throw new Error("Supabase credentials are missing.");
+        }
+
         const { data: newProperty, error } = await supabase
           .from("properties")
           .insert({
@@ -147,6 +156,10 @@ export const api = {
       }
 
       try {
+        if (!supabase) {
+          throw new Error("Supabase credentials are missing.");
+        }
+
         const updates: Record<string, unknown> = {};
         
         if (data.city !== undefined) updates.city = data.city;
@@ -197,6 +210,10 @@ export const api = {
       }
 
       try {
+        if (!supabase) {
+          throw new Error("Supabase credentials are missing.");
+        }
+
         const { error } = await supabase.from("properties").delete().eq("id", id);
 
         if (error) throw error;

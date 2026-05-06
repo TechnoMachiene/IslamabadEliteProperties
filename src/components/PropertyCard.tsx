@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Heart, MapPin, Bed, Bath, Car } from "lucide-react";
 import { Property, smallImageMap } from "@/data/properties";
 import { motion } from "framer-motion";
@@ -12,10 +12,12 @@ interface Props {
 }
 
 const PropertyCard = ({ property, onClick = () => {}, index = 0 }: Props) => {
-  const [fav, setFav] = useState(() => {
+  const [fav, setFav] = useState(false);
+
+  useEffect(() => {
     const favs = JSON.parse(localStorage.getItem("favorites") || "[]");
-    return favs.includes(property.id);
-  });
+    setFav(favs.includes(property.id));
+  }, [property.id]);
 
   const toggleFav = (e: React.MouseEvent) => {
     e.stopPropagation();

@@ -1,24 +1,8 @@
 [build]
-  command   = "npm run build"
-  publish   = "dist"
-  functions = "netlify/functions"
+  command = "npm run build"
+  publish = ".next"
 
 [dev]
-  # "netlify dev" runs Vite on targetPort and proxies through port
-  command    = "npm run dev"
-  port       = 8888
-  targetPort = 8080
-  framework  = "#custom"
-
-# Proxy /api/* to Netlify Functions (keeps URLs clean in production)
-[[redirects]]
-  from   = "/api/*"
-  to     = "/.netlify/functions/:splat"
-  status = 200
-  force  = true
-
-# SPA fallback — must be last
-[[redirects]]
-  from   = "/*"
-  to     = "/index.html"
-  status = 200
+  command = "npm run dev"
+  port = 8888
+  targetPort = 3000

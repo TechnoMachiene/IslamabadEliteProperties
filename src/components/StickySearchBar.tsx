@@ -95,7 +95,7 @@ const StickySearchBar = ({ visible }: Props) => {
                 {["F-6", "F-7", "F-8"].map((s) => (
                   <Link
                     key={s}
-                    href={`/properties/${s.toLowerCase().replace("/", "-")}`}
+                    href={`/islamabad/${s.toLowerCase().replace("/", "-")}`}
                     className="text-sm text-muted-foreground hover:text-primary font-medium transition-colors"
                   >
                     {s}

@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getCityBySlug, cities } from "@/data/cities";
 import { getPropertiesBySector } from "@/lib/supabase-server";
-import { generatePropertySlug, subSectorSeoContent } from "@/data/properties";
+import { generatePropertySlug } from "@/data/properties";
 import { SITE_URL } from "../../layout";
 import PropertyGridClient from "@/components/PropertyGridClient";
 
@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!city || !sector) return {};
 
   const canonical = `${SITE_URL}/${citySlug}/${sectorSlug}`;
-  const title = `${sector.name} Properties for Sale in ${city.name} | Islamabad Elite Properties`;
+  const title = `${sector.name} Properties for Sale in ${city.name}`;
   const description = `Discover luxury properties for sale in ${sector.name} ${city.name}. Villas, houses & apartments. Expert agents, virtual tours & best deals guaranteed.`;
 
   return {
