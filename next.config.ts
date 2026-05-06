@@ -14,24 +14,24 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // www -> apex
+      // apex -> www
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.islamabadeliteproperties.com" }],
-        destination: "https://islamabadeliteproperties.com/:path*",
+        has: [{ type: "host", value: "islamabadeliteproperties.com" }],
+        destination: "https://www.islamabadeliteproperties.com/:path*",
         permanent: true,
       },
       // old .pk domain -> new .com
       {
         source: "/:path*",
         has: [{ type: "host", value: "islamabadelite.pk" }],
-        destination: "https://islamabadeliteproperties.com/:path*",
+        destination: "https://www.islamabadeliteproperties.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.islamabadelite.pk" }],
-        destination: "https://islamabadeliteproperties.com/:path*",
+        destination: "https://www.islamabadeliteproperties.com/:path*",
         permanent: true,
       },
       // legacy /properties/f-x -> /islamabad/f-x
