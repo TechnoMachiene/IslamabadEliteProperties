@@ -105,7 +105,6 @@ const faqSchema = {
 };
 
 const islamabad = cities.find((c) => c.slug === "islamabad")!;
-const rawalpindi = cities.find((c) => c.slug === "rawalpindi")!;
 const featuredProps = properties.filter((p) => p.isFeatured).slice(0, 6);
 
 export default function HomePage() {
@@ -154,8 +153,7 @@ export default function HomePage() {
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Islamabad Elite Properties is Pakistan's most trusted luxury real estate agency, specialising
-                in premium houses, villas and apartments for sale in Islamabad's F-6, F-7 and F-8 sectors, as
-                well as Bahria Town and DHA communities in Rawalpindi. With over 15 years of market expertise
+                in premium houses, villas and apartments for sale in Islamabad's F-6, F-7 and F-8 sectors. With over 15 years of market expertise
                 and more than 500 successful transactions, we connect discerning buyers with the finest
                 residential properties in the Twin Cities.
               </p>
@@ -196,36 +194,6 @@ export default function HomePage() {
                     </div>
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
                       Browse {sector.name} <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Rawalpindi sectors */}
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground text-center mt-14 mb-8">
-              Premium Communities in Rawalpindi
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {rawalpindi.sectors.map((sector) => (
-                <div
-                  key={sector.slug}
-                  className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300"
-                >
-                  <Link
-                    href={`/rawalpindi/${sector.slug}`}
-                    className="absolute inset-0 z-10 rounded-2xl"
-                    aria-label={`Browse ${sector.name} properties in Rawalpindi`}
-                  />
-                  <div className="relative z-20 pointer-events-none">
-                    <h3 className="text-xl font-display font-bold text-gradient-gold mb-2">
-                      {sector.name} Properties
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                      {sector.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                      View Properties <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
@@ -386,76 +354,6 @@ export default function HomePage() {
 
         {/* ── Sector highlights (client component) ────────────── */}
         <SectorHighlights />
-
-        {/* ── SSR: Investment insights ──────────────────────────── */}
-        <section className="py-16 sm:py-20 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-6">
-              Why Invest in Islamabad Real Estate
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-              Islamabad real estate has historically delivered among the strongest risk-adjusted returns
-              of any asset class in Pakistan. Prime sector properties — particularly in F-6 and F-7 —
-              have averaged 8–12% annual price appreciation over the past decade, significantly
-              outperforming inflation and savings account returns. The fundamental drivers of this
-              performance are structural and enduring: Islamabad is the federal capital with a permanently
-              high demand base from senior civil servants, military officers, diplomats, and multinational
-              executives — all of whom require high-quality housing in secure, well-served neighbourhoods.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-              Supply constraints further reinforce values. F-6, F-7 and F-8 are fully developed sectors
-              under strict low-density CDA (Capital Development Authority) zoning. There is no new land
-              available, and existing properties change hands infrequently. This scarcity — combined with
-              growing demand from Pakistan's expanding upper-middle class and the diaspora — creates a
-              structurally supportive market for long-term property investors.
-            </p>
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              For those seeking higher growth potential, Bahria Town Phase 7 and DHA Rawalpindi Phase 3
-              offer compelling early-stage opportunities within Pakistan's fastest-developing real estate
-              corridor, the Twin Cities. Bahria Town has recorded 15–20% annual appreciation in
-              established phases, making it one of the country's most rewarding investment communities.
-            </p>
-
-            {/* External links for authority */}
-            <div className="mt-8 p-5 rounded-2xl bg-muted/40 border border-border">
-              <h3 className="text-base font-display font-semibold text-foreground mb-3">
-                Useful Resources
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a
-                    href="https://www.cda.gov.pk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Capital Development Authority (CDA) — Official Islamabad Regulations
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.pbf.org.pk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Pakistan Business Forum — Real Estate Market Data
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.zameen.com/blog/islamabad-property-market-report.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Islamabad Property Market Report 2024
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
         {/* ── Available property types ─────────────────────────── */}
         <section className="py-16 sm:py-20 bg-muted/30">

@@ -59,7 +59,7 @@ export default async function PropertiesPage() {
                 {city.name} Properties
               </Link>
             ))}
-            {cities.flatMap((city) =>
+            {cities.filter((city) => city.slug === "islamabad").flatMap((city) =>
               city.sectors.map((sector) => (
                 <Link
                   key={`${city.slug}-${sector.slug}`}

@@ -12,13 +12,13 @@ const Footer = () => (
           </p>
           {/* Social links */}
           <div className="flex items-center gap-3 mt-4">
-            <a href="https://facebook.com/islamabadeliteproperties" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+            <a href="https://www.facebook.com/profile.php?id=61589273275140" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
               <Facebook className="w-4 h-4" />
             </a>
-            <a href="https://instagram.com/islamabadeliteproperties" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+            <a href="https://www.instagram.com/islamabadeliteofficial/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
-            <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+            <a href="https://wa.me/923062091111" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
               <Phone className="w-4 h-4" />
             </a>
           </div>
@@ -49,11 +49,15 @@ const Footer = () => (
           <ul className="space-y-3 text-sm text-primary-foreground/60">
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 flex-shrink-0" />
-              <a href="tel:+923001234567" className="hover:text-primary">+92 300 1234567</a>
+              <a href="tel:+923062091111" className="hover:text-primary">+92-306-2091111</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="w-4 h-4 flex-shrink-0" />
+              <a href="tel:+923062392222" className="hover:text-primary">+92-306-2392222</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 flex-shrink-0" />
-              <a href="mailto:info@islamabadeliteproperties.com" className="hover:text-primary">info@islamabadeliteproperties.com</a>
+              <a href="mailto:islamabadeliteofficial@gmail.com" className="hover:text-primary">islamabadeliteofficial@gmail.com</a>
             </li>
           </ul>
         </div>

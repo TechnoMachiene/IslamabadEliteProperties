@@ -148,7 +148,8 @@ export default async function CityPage({
         </section>
 
         {/* ── Sector grid ─────────────────────────────────────── */}
-        <section className="py-14 sm:py-16 bg-background">
+        {citySlug !== "rawalpindi" && (
+          <section className="py-14 sm:py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground mb-2">
               Prime Sectors in {city.name}
@@ -198,7 +199,8 @@ export default async function CityPage({
               })}
             </div>
           </div>
-        </section>
+          </section>
+        )}
 
         {/* ── Featured properties ──────────────────────────────── */}
         {displayProps.length > 0 && (
