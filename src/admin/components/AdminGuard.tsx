@@ -7,7 +7,7 @@ import { useAdminAuth } from "@/admin/context/AdminAuthContext";
 /** Redirects to /admin/login if the session is not authenticated. */
 const AdminGuard = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated } = useAdminAuth();
-  if (!isAuthenticated) return <Navigate to="/admin/login" replace />;
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
   return <>{children}</>;
 };
 

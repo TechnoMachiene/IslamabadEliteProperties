@@ -15,10 +15,10 @@ import {
 import { useAdminAuth } from "@/admin/context/AdminAuthContext";
 
 const navItems = [
-  { to: "/admin/dashboard",        icon: BarChart3,  label: "Dashboard"      },
-  { to: "/admin/properties",       icon: Building2,  label: "Properties"     },
-  { to: "/admin/properties/new",   icon: Plus,       label: "Add Property"   },
-  { to: "/admin/settings",         icon: Settings,   label: "Settings"       },
+  { to: "/dashboard",        icon: BarChart3,  label: "Dashboard"      },
+  { to: "/properties",       icon: Building2,  label: "Properties"     },
+  { to: "/properties/new",   icon: Plus,       label: "Add Property"   },
+  { to: "/settings",         icon: Settings,   label: "Settings"       },
 ];
 
 interface Props { children: ReactNode }
@@ -29,14 +29,14 @@ const AdminLayout = ({ children }: Props) => {
   const { logout } = useAdminAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleLogout = () => { logout(); navigate("/admin/login"); };
+  const handleLogout = () => { logout(); navigate("/login"); };
   const isActive = (to: string) => location.pathname === to || location.pathname.startsWith(to + "/");
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Brand */}
       <div className="px-6 py-5 border-b border-slate-700/60">
-        <Link to="/admin/dashboard" className="flex items-center gap-2.5">
+        <Link to="/dashboard" className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shrink-0">
             <Building2 className="w-4 h-4 text-white" />
           </div>
@@ -69,14 +69,15 @@ const AdminLayout = ({ children }: Props) => {
         </ul>
 
         <div className="mt-6 pt-6 border-t border-slate-700/60">
-          <Link
-            to="/"
+          <a
+            href="/"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:bg-slate-700/60 hover:text-slate-200 transition-all"
           >
             <Home className="w-4 h-4 shrink-0" />
             View Website
-          </Link>
+          </a>
         </div>
       </nav>
 

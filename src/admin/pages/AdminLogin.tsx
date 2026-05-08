@@ -20,7 +20,7 @@ const AdminLogin = ({ urlMode = false }: { urlMode?: boolean }) => {
     setError("");
     const ok = await login(pw);
     if (ok) {
-      navigate("/admin/dashboard", { replace: true });
+      navigate("/dashboard", { replace: true });
     } else {
       setError("Incorrect password. Please try again.");
       setLoading(false);

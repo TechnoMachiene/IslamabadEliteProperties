@@ -29,7 +29,7 @@ const AdminDashboard = () => {
             <p className="text-sm text-slate-500 mt-1">Overview of your real estate platform</p>
           </div>
           <Link
-            to="/admin/properties/new"
+            to="/properties/new"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-500 text-slate-900 font-semibold text-sm hover:bg-yellow-400 transition-colors"
           >
             <Plus className="w-4 h-4" /> Add Property
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
             <h2 className="text-base font-semibold text-slate-900">Recent Properties</h2>
-            <Link to="/admin/properties" className="text-xs text-yellow-600 font-medium hover:text-yellow-700">
+            <Link to="/properties" className="text-xs text-yellow-600 font-medium hover:text-yellow-700">
               View all →
             </Link>
           </div>

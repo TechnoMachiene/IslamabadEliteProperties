@@ -110,7 +110,7 @@ const AdminPropertyForm = () => {
       } else {
         await addProperty(payload);
       }
-      navigate("/admin/properties");
+      navigate("/properties");
     } catch {
       setErrors({ title: "Failed to save. Check your connection and try again." });
     } finally {
