@@ -87,11 +87,7 @@ export default async function PropertyPage({
       addressLocality: citySlug === "islamabad" ? "Islamabad" : "Rawalpindi",
       addressCountry: "PK",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: property.mapCoords.lat,
-      longitude: property.mapCoords.lng,
-    },
+
     numberOfRooms: property.bedrooms,
     numberOfBathroomsTotal: property.bathrooms,
     floorSize: {

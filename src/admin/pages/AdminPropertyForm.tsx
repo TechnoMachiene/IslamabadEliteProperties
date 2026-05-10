@@ -25,7 +25,6 @@ const emptyForm: FormState = {
   bedrooms: 3, bathrooms: 3, parking: 1, yearBuilt: 2022,
   type: "House", features: [], images: [""], videoUrl: "",
   isFeatured: false, agentPhone: "+923001234567",
-  mapCoords: { lat: 33.7194, lng: 73.0551 },
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -111,8 +110,9 @@ const AdminPropertyForm = () => {
         await addProperty(payload);
       }
       navigate("/properties");
-    } catch {
-      setErrors({ title: "Failed to save. Check your connection and try again." });
+    } catch (error: unknown) {
+      console.error("❌ Form submission error:", error);
+      setErrors({ title: "Failed to save. Check console for details." });
     } finally {
       setSaving(false);
     }
@@ -295,6 +295,22 @@ const AdminPropertyForm = () => {
                 />
                 <p className="mt-1 text-xs text-slate-400">Auto-filled from price. Override if needed.</p>
               </div>
+            </div>
+          </fieldset>
+
+          {/* ── Video ────────────────────────────────────────────────────── */}
+          <fieldset className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <legend className="text-base font-semibold text-slate-900 mb-4">Video</legend>
+            <div>
+              <label className="text-xs font-medium text-slate-600 block mb-1.5">Video URL</label>
+              <input
+                type="url"
+                value={form.videoUrl}
+                onChange={(e) => set("videoUrl", e.target.value)}
+                placeholder="e.g. https://www.youtube.com/embed/dQw4w9WgXcQ"
+                className={inputClass()}
+              />
+              <p className="mt-1 text-xs text-slate-400">YouTube embed URL or direct video link</p>
             </div>
           </fieldset>
 
