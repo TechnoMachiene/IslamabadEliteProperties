@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "hmgmstsjuqfazrhioady.supabase.co" },
       { protocol: "https", hostname: "islamabadeliteproperties.com" },
       { protocol: "https", hostname: "www.islamabadeliteproperties.com" },
+      { protocol: "https", hostname: "drive.google.com" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
     ],
     formats: ["image/avif", "image/webp"],
   },

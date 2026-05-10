@@ -4,6 +4,7 @@
  */
 import { createClient } from "@supabase/supabase-js";
 import type { Property } from "@/data/properties";
+import { convertGoogleDriveUrl, convertGoogleDriveVideoUrl } from "./utils";
 
 // Initialize Supabase client with public anon key (safe for frontend)
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -25,6 +26,8 @@ function adminToken(): string {
 
 // Transform Supabase snake_case to camelCase Property type
 function transformProperty(row: Record<string, unknown>): Property {
+  const images = (row.images as string[]) || [];
+  const videoUrl = (row.video_url as string) || "";
   return {
     id: (row.id as string) || "",
     city: (row.city as string) || "",
@@ -40,15 +43,11 @@ function transformProperty(row: Record<string, unknown>): Property {
     bathrooms: (row.bathrooms as number) || 0,
     parking: (row.parking as number) || 0,
     features: (row.features as string[]) || [],
-    images: (row.images as string[]) || [],
-    videoUrl: (row.video_url as string) || "",
+    images: images.map(convertGoogleDriveUrl),
+    videoUrl: convertGoogleDriveVideoUrl(videoUrl),
     isFeatured: (row.is_featured as boolean) || false,
     type: (((row.type as string) || "House") as "House" | "Villa" | "Apartment" | "Penthouse" | "Bungalow"),
     yearBuilt: (row.year_built as number) || new Date().getFullYear(),
-    mapCoords: {
-      lat: (row.map_lat as number) || 33.7194,
-      lng: (row.map_lng as number) || 73.0551,
-    },
     agentPhone: (row.agent_phone as string) || "",
   };
 }
@@ -124,13 +123,11 @@ export const api = {
             bathrooms: data.bathrooms || 0,
             parking: data.parking || 0,
             features: data.features || [],
-            images: data.images || [],
-            video_url: data.videoUrl || "",
+            images: (data.images || []).map(convertGoogleDriveUrl),
+            video_url: convertGoogleDriveVideoUrl(data.videoUrl || ""),
             is_featured: data.isFeatured || false,
             type: data.type || "House",
             year_built: data.yearBuilt || new Date().getFullYear(),
-            map_lat: data.mapCoords?.lat || 33.7194,
-            map_lng: data.mapCoords?.lng || 73.0551,
             agent_phone: data.agentPhone || "",
           })
           .select()
@@ -141,7 +138,9 @@ export const api = {
         return transformProperty(newProperty);
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : String(error);
-        console.error("Failed to create property:", message);
+        console.error("❌ Failed to create property:", message);
+        // Log the full error for debugging
+        console.error("Full error details:", error);
         throw error;
       }
     },
@@ -175,15 +174,11 @@ export const api = {
         if (data.bathrooms !== undefined) updates.bathrooms = data.bathrooms;
         if (data.parking !== undefined) updates.parking = data.parking;
         if (data.features !== undefined) updates.features = data.features;
-        if (data.images !== undefined) updates.images = data.images;
-        if (data.videoUrl !== undefined) updates.video_url = data.videoUrl;
+        if (data.images !== undefined) updates.images = data.images.map(convertGoogleDriveUrl);
+        if (data.videoUrl !== undefined) updates.video_url = convertGoogleDriveVideoUrl(data.videoUrl);
         if (data.isFeatured !== undefined) updates.is_featured = data.isFeatured;
         if (data.type !== undefined) updates.type = data.type;
         if (data.yearBuilt !== undefined) updates.year_built = data.yearBuilt;
-        if (data.mapCoords !== undefined) {
-          updates.map_lat = data.mapCoords.lat;
-          updates.map_lng = data.mapCoords.lng;
-        }
         if (data.agentPhone !== undefined) updates.agent_phone = data.agentPhone;
 
         const { data: updatedProperty, error } = await supabase

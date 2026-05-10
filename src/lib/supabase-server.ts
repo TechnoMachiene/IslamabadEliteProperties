@@ -1,14 +1,17 @@
 import { createClient } from "@supabase/supabase-js";
 import { properties as staticProperties, type Property } from "@/data/properties";
 import { generatePropertySlug } from "@/data/properties";
+import { convertGoogleDriveUrl, convertGoogleDriveVideoUrl } from "./utils";
 
 function transformRow(row: Record<string, unknown>): Property {
-  const images: string[] =
+  const rawImages: string[] =
     Array.isArray(row.images)
       ? row.images
       : row.imageUrl
       ? [row.imageUrl as string]
       : ["/images/property-1.webp"];
+
+  const images = rawImages.map(convertGoogleDriveUrl);
 
   const price = Number(row.price) || 0;
   const crore = price / 10_000_000;
@@ -33,14 +36,11 @@ function transformRow(row: Record<string, unknown>): Property {
     parking: Number(row.parking) || 0,
     features: Array.isArray(row.features) ? row.features : [],
     images,
-    videoUrl: (row.video_url as string) || (row.videoUrl as string) || "",
+    videoUrl: convertGoogleDriveVideoUrl((row.video_url as string) || (row.videoUrl as string) || ""),
     isFeatured: Boolean(row.is_featured ?? row.isFeatured),
     type: ((row.type as string) || "House") as Property["type"],
     yearBuilt: Number(row.year_built ?? row.yearBuilt) || new Date().getFullYear(),
-    mapCoords: {
-      lat: Number(row.map_lat ?? (row.mapCoords as Record<string, unknown>)?.lat ?? 33.7194),
-      lng: Number(row.map_lng ?? (row.mapCoords as Record<string, unknown>)?.lng ?? 73.0551),
-    },
+
     agentPhone: (row.agent_phone as string) || (row.agentPhone as string) || "",
   };
 }
