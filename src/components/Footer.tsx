@@ -59,6 +59,9 @@ const Footer = () => (
               <Mail className="w-4 h-4 flex-shrink-0" />
               <a href="mailto:islamabadeliteofficial@gmail.com" className="hover:text-primary">islamabadeliteofficial@gmail.com</a>
             </li>
+            <li className="text-sm text-primary-foreground/60 mt-2">
+              Near Rania Mall, Bank Road, Saddar, Rawalpindi
+            </li>
           </ul>
         </div>
       </div>

@@ -84,7 +84,7 @@ export default async function PropertyPage({
     address: {
       "@type": "PostalAddress",
       streetAddress: property.subSector,
-      addressLocality: citySlug === "islamabad" ? "Islamabad" : "Rawalpindi",
+      addressLocality: "Islamabad",
       addressCountry: "PK",
     },
 
@@ -258,10 +258,9 @@ export default async function PropertyPage({
               Explore Islamabad Sectors
             </h2>
             <div className="flex flex-wrap gap-3">
-              <Link href="/islamabad/f-6" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-6 â†’</Link>
-              <Link href="/islamabad/f-7" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-7 â†’</Link>
-              <Link href="/islamabad/f-8" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-8 â†’</Link>
-              <Link href="/rawalpindi/bahria-town" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Bahria Town Properties â†’</Link>
+              <Link href="/islamabad/f-6" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-6 →</Link>
+              <Link href="/islamabad/f-7" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-7 →</Link>
+              <Link href="/islamabad/f-8" className="px-5 py-3 rounded-xl bg-card border border-border text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Properties in F-8 →</Link>
             </div>
           </section>
         </div>

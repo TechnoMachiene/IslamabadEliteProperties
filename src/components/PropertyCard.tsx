@@ -27,12 +27,16 @@ const PropertyCard = ({ property, onClick = () => {}, index = 0 }: Props) => {
     setFav(!fav);
   };
 
+  const handleCardClick = () => {
+    onClick(property);
+  };
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      onClick={() => onClick(property)}
+      onClick={handleCardClick}
       className="group cursor-pointer bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300"
     >
       <div className="relative aspect-[4/3] overflow-hidden">

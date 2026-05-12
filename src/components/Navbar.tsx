@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cities } from "@/data/cities";
+import { trackContactClick } from "@/lib/tracking";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -120,12 +121,12 @@ const Navbar = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="tel:+923001234567" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground text-sm font-medium transition-colors hover:bg-muted" aria-label="Call us">
+            <button onClick={async () => { await trackContactClick('call', '0'); window.location.href = 'tel:+923062091111'; }} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground text-sm font-medium transition-colors hover:bg-muted" aria-label="Call us">
               <Phone className="w-3.5 h-3.5" /> Call
-            </a>
-            <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-gold text-primary-foreground text-sm font-semibold transition-transform hover:scale-105" aria-label="WhatsApp our agent">
+            </button>
+            <button onClick={async () => { await trackContactClick('whatsapp', '0'); window.open('https://wa.me/923062392222', '_blank'); }} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-gold text-primary-foreground text-sm font-semibold transition-transform hover:scale-105" aria-label="WhatsApp our agent">
               <Phone className="w-4 h-4" /> WhatsApp
-            </a>
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -198,12 +199,12 @@ const Navbar = () => {
 
               {/* Footer CTAs */}
               <div className="px-4 py-6 border-t border-border space-y-3">
-                <a href="tel:+923001234567" onClick={() => setDrawerOpen(false)} className="flex items-center justify-center gap-2 w-full min-h-[48px] py-3 rounded-xl border border-border text-foreground text-sm font-medium transition-colors hover:bg-muted">
+                <button onClick={async () => { setDrawerOpen(false); await trackContactClick('call', '0'); window.location.href = 'tel:+923062091111'; }} className="flex items-center justify-center gap-2 w-full min-h-[48px] py-3 rounded-xl border border-border text-foreground text-sm font-medium transition-colors hover:bg-muted">
                   <Phone className="w-4 h-4" /> Call Us
-                </a>
-                <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" onClick={() => setDrawerOpen(false)} className="flex items-center justify-center gap-2 w-full min-h-[48px] py-3 rounded-xl bg-gradient-gold text-primary-foreground text-sm font-semibold">
+                </button>
+                <button onClick={async () => { setDrawerOpen(false); await trackContactClick('whatsapp', '0'); window.open('https://wa.me/923062392222', '_blank'); }} className="flex items-center justify-center gap-2 w-full min-h-[48px] py-3 rounded-xl bg-gradient-gold text-primary-foreground text-sm font-semibold">
                   <Phone className="w-4 h-4" /> WhatsApp Agent
-                </a>
+                </button>
               </div>
             </motion.div>
           </>

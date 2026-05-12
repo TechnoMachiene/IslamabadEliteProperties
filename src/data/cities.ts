@@ -172,95 +172,36 @@ export const cities: CityInfo[] = [
       },
     ],
   },
-
   // ── RAWALPINDI ─────────────────────────────────────────
   {
     name: "Rawalpindi",
     slug: "rawalpindi",
-    tagline: "Twin City — Bahria Town & DHA",
+    tagline: "Pakistan's Twin City — General Properties",
     highlights: [
-      { value: "10+",        label: "Properties Listed"    },
-      { value: "Bahria · DHA", label: "Prime Communities" },
-      { value: "15–20%",     label: "Avg. Annual Gains"   },
+      { value: "10+",     label: "Properties Listed"  },
+      { value: "All Areas", label: "Across Rawalpindi" },
+      { value: "10+ Yrs", label: "Market Expertise"   },
     ],
     seoIntro:
-      "Rawalpindi, Islamabad's twin city, is experiencing one of Pakistan's most dynamic real estate transformations. Home to Bahria Town — Asia's largest housing society — and DHA Rawalpindi, the city offers a compelling mix of master-planned luxury communities, modern infrastructure, and rapidly appreciating property values. Bahria Town's iconic landmarks, world-class amenities, and secure gated environment attract buyers from across Pakistan and the diaspora. DHA Rawalpindi, with its military-standard security and organised community management, remains the benchmark for structured residential living in the region. Whether you seek a premium villa in Bahria Town Phase 7 or a well-maintained family home in DHA, Rawalpindi delivers exceptional value within Pakistan's most strategically connected capital region.",
+      "Rawalpindi, Pakistan's twin city to Islamabad, offers diverse residential opportunities across multiple neighborhoods and price points. From established cantonment areas to rapidly developing new sectors, Rawalpindi provides excellent options for families, professionals, and investors seeking value-driven real estate. Our curated portfolio spans various localities offering quality living with strong rental potential and steady capital appreciation.",
     seoInvest:
-      "Rawalpindi's real estate market has recorded some of Pakistan's strongest capital gains over the past decade. Bahria Town properties in particular have seen 15–20% annual appreciation in established phases, while newer phases offer compelling early-stage entry opportunities. DHA Rawalpindi combines the stability of a defence housing authority with the growth potential of a rapidly expanding city. The Twin Cities' integrated economy, improved road networks — including the M-2 Motorway and CPEC connectivity — and the planned Rawalpindi Ring Road are set to sustain strong property appreciation for years to come. For investors seeking value-for-money luxury with solid growth fundamentals, Rawalpindi is the strategic opportunity of the decade.",
+      "Rawalpindi's real estate market continues to demonstrate solid growth potential. Proximity to Islamabad, ongoing infrastructure development, and strong rental demand from professionals and families make Rawalpindi an attractive investment destination. Properties offer competitive entry prices with steady appreciation, making it ideal for value-conscious investors.",
     sectors: [
       {
-        name: "Bahria Town",
-        slug: "bahria-town",
+        name: "General",
+        slug: "general",
         description:
-          "Asia's largest housing society — a master-planned luxury community with parks, schools, hospitals, and internationally inspired architecture.",
+          "Properties across various areas and neighborhoods of Rawalpindi, offering diverse options to suit different preferences and budgets.",
         invest:
-          "Bahria Town properties have delivered 15–20% annual appreciation over the past decade. A strong rental market and consistent diaspora demand ensure sustained growth across all phases.",
+          "Diverse portfolio across Rawalpindi's growing neighborhoods with strong rental yields and appreciation potential.",
         subSectors: [
           {
-            name: "Phase 1",
-            slug: "phase-1",
+            name: "All Properties",
+            slug: "all",
             description:
-              "Bahria Town's original phase with mature trees, wide roads, and a deeply established community atmosphere. Ideal for families seeking a proven, settled environment.",
+              "Curated selection of properties across Rawalpindi including cantonment areas, new developments, and established neighborhoods.",
             invest:
-              "Most affordable entry point within Bahria Town. Excellent rental yields from long-term residents and consistent buyer interest.",
-          },
-          {
-            name: "Phase 2",
-            slug: "phase-2",
-            description:
-              "A well-developed phase featuring premium villas, community parks, and excellent connectivity to Islamabad via multiple access routes.",
-            invest:
-              "Balanced market with steady appreciation and strong demand from families relocating from Islamabad.",
-          },
-          {
-            name: "Phase 7",
-            slug: "phase-7",
-            description:
-              "Bahria Town's most prestigious phase — iconic landmarks including a replica Eiffel Tower, ultra-luxury properties, and premium commercial zones.",
-            invest:
-              "Phase 7's iconic status and limited luxury inventory command a significant premium. An exceptional choice for high-net-worth buyers seeking statement properties.",
-          },
-          {
-            name: "Bahria Orchard",
-            slug: "orchard",
-            description:
-              "A modern, self-contained planned community with affordable villas, excellent green spaces, and all the amenities of Bahria Town at a more accessible price point.",
-            invest:
-              "One of Rawalpindi's highest-growth areas. Significant upside as infrastructure development accelerates and the community matures.",
-          },
-        ],
-      },
-      {
-        name: "DHA Rawalpindi",
-        slug: "dha",
-        description:
-          "Defence Housing Authority's flagship development in Rawalpindi — military-standard security, planned infrastructure, and one of Pakistan's most prestigious addresses.",
-        invest:
-          "DHA properties combine rock-solid stability with long-term growth. The authority's proven track record ensures consistent quality, reliable appreciation, and hassle-free ownership.",
-        subSectors: [
-          {
-            name: "DHA Phase 1",
-            slug: "phase-1",
-            description:
-              "The original DHA Rawalpindi phase — a mature neighbourhood with established parks, commercial areas, and a strong sense of community.",
-            invest:
-              "Blue-chip investment with stable values and strong rental demand from senior professionals and military officers.",
-          },
-          {
-            name: "DHA Phase 2",
-            slug: "phase-2",
-            description:
-              "A rapidly developing phase with modern homes, new commercial hubs, and excellent connectivity to both Rawalpindi and Islamabad.",
-            invest:
-              "Strong capital growth as development accelerates. A prime opportunity for investors seeking established quality at mid-market prices.",
-          },
-          {
-            name: "DHA Phase 3",
-            slug: "phase-3",
-            description:
-              "DHA's newest phase — modern plots and under-construction luxury villas at competitive entry prices in a high-security gated community.",
-            invest:
-              "Early-stage investment opportunity with significant appreciation potential as the phase develops and community amenities come online.",
+              "Competitive entry prices with steady appreciation and strong rental demand make Rawalpindi an excellent value investment.",
           },
         ],
       },

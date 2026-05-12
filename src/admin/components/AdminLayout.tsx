@@ -8,6 +8,7 @@ import {
   Home,
   LogOut,
   Menu,
+  Phone,
   Plus,
   Settings,
   X,
@@ -18,6 +19,7 @@ const navItems = [
   { to: "/dashboard",        icon: BarChart3,  label: "Dashboard"      },
   { to: "/properties",       icon: Building2,  label: "Properties"     },
   { to: "/properties/new",   icon: Plus,       label: "Add Property"   },
+  { to: "/contact-stats",    icon: Phone,      label: "Contact Stats"  },
   { to: "/settings",         icon: Settings,   label: "Settings"       },
 ];
 

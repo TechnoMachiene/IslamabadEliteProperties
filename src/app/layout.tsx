@@ -22,8 +22,6 @@ export const metadata: Metadata = {
     "F-8 apartments Islamabad",
     "buy property Islamabad",
     "Islamabad real estate agency",
-    "Bahria Town Rawalpindi",
-    "DHA Rawalpindi",
   ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,

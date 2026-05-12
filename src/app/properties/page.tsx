@@ -11,13 +11,13 @@ import PropertyListingClient from "@/components/PropertyListingClient";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "All Properties for Sale in Islamabad & Rawalpindi",
+  title: "All Properties for Sale in Islamabad",
   description:
-    "Browse our complete portfolio of luxury properties for sale in Islamabad and Rawalpindi. Filter by sector, price, bedrooms and type. Villas, houses & apartments.",
+    "Browse our complete portfolio of luxury properties for sale in Islamabad. Filter by sector, price, bedrooms and type. Villas, houses & apartments.",
   alternates: { canonical: `${SITE_URL}/properties` },
   openGraph: {
-    title: "All Properties for Sale in Islamabad & Rawalpindi",
-    description: "Complete portfolio of luxury properties — F-6, F-7, F-8 Islamabad and Bahria Town, DHA Rawalpindi.",
+    title: "All Properties for Sale in Islamabad",
+    description: "Complete portfolio of luxury properties — F-6, F-7, F-8 in Islamabad.",
     url: `${SITE_URL}/properties`,
   },
 };

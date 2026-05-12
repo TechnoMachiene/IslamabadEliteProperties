@@ -11,6 +11,7 @@ const AdminDashboard    = lazy(() => import("@/admin/pages/AdminDashboard"));
 const AdminProperties   = lazy(() => import("@/admin/pages/AdminProperties"));
 const AdminPropertyForm = lazy(() => import("@/admin/pages/AdminPropertyForm"));
 const AdminSettings     = lazy(() => import("@/admin/pages/AdminSettings"));
+const AdminContactStats = lazy(() => import("@/admin/pages/AdminContactStats"));
 
 const AdminLoader = () => (
   <div className="min-h-screen bg-slate-900 flex items-center justify-center">
@@ -40,6 +41,7 @@ const AdminApp = () => (
         <Route path="properties/new"  element={<Protected><AdminPropertyForm /></Protected>} />
         <Route path="properties/edit/:id" element={<Protected><AdminPropertyForm /></Protected>} />
         <Route path="settings"        element={<Protected><AdminSettings /></Protected>} />
+        <Route path="contact-stats"   element={<Protected><AdminContactStats /></Protected>} />
 
         {/* Default: redirect to login or dashboard */}
         <Route index element={<AdminGuard><AdminLayout><AdminDashboard /></AdminLayout></AdminGuard>} />

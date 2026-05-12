@@ -57,7 +57,7 @@ const FinalCTA = () => (
             <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
           </Link>
           <a
-            href="https://wa.me/923001234567"
+            href="https://wa.me/923062392222"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl border border-white/20 text-white font-semibold text-sm transition-all hover:bg-white/10 hover:border-white/40 active:scale-95"

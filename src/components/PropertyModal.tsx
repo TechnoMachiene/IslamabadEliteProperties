@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight, Bed, Bath, Car, Calendar, Phone } from "lucide-react";
 import { Property } from "@/data/properties";
+import { trackContactClick } from "@/lib/tracking";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
@@ -22,6 +23,16 @@ const PropertyModal = ({ property, onClose }: Props) => {
   const waText = encodeURIComponent(
     `Hi! I'm interested in "${property.title}" in ${property.subSector}. Price: PKR ${property.priceFormatted}. Please share more details.`
   );
+
+  const handleWhatsAppClick = async () => {
+    await trackContactClick('whatsapp', property.id);
+    window.open(`https://wa.me/${property.agentPhone.replace(/\D/g, "")}?text=${waText}`, '_blank');
+  };
+
+  const handleCallClick = async () => {
+    await trackContactClick('call', property.id);
+    window.location.href = `tel:${property.agentPhone}`;
+  };
 
   return (
     <AnimatePresence>
@@ -167,22 +178,20 @@ const PropertyModal = ({ property, onClose }: Props) => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href={`https://wa.me/${property.agentPhone.replace(/\D/g, "")}?text=${waText}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-gold text-primary-foreground font-semibold text-sm transition-transform hover:scale-105"
+              <button
+                onClick={handleWhatsAppClick}
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-gold text-primary-foreground font-semibold text-sm transition-transform hover:scale-105 cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
                 WhatsApp Agent
-              </a>
-              <a
-                href={`tel:${property.agentPhone}`}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border-2 border-border text-foreground font-semibold text-sm transition-colors hover:bg-muted"
+              </button>
+              <button
+                onClick={handleCallClick}
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border-2 border-border text-foreground font-semibold text-sm transition-colors hover:bg-muted cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
                 Call Agent
-              </a>
+              </button>
             </div>
           </div>
         </motion.div>

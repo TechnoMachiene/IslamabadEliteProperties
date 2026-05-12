@@ -122,7 +122,7 @@ const Hero = () => (
       >
         Or{" "}
         <a
-          href="https://wa.me/923001234567"
+          href="https://wa.me/923062392222"
           target="_blank"
           rel="noopener noreferrer"
           className="underline underline-offset-2 hover:text-white transition-colors"

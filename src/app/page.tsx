@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
-import FeaturedCarousel from "@/components/FeaturedCarousel";
+import FeaturedCarouselWithModal from "@/components/FeaturedCarouselWithModal";
 import SectorHighlights from "@/components/SectorHighlights";
 import ValueProps from "@/components/ValueProps";
 import Testimonials from "@/components/Testimonials";
@@ -57,8 +57,6 @@ const organizationSchema = {
     { "@type": "Place", name: "F-6, Islamabad" },
     { "@type": "Place", name: "F-7, Islamabad" },
     { "@type": "Place", name: "F-8, Islamabad" },
-    { "@type": "Place", name: "Bahria Town, Rawalpindi" },
-    { "@type": "Place", name: "DHA Rawalpindi" },
   ],
   sameAs: [
     "https://facebook.com/islamabadeliteproperties",
@@ -203,7 +201,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Featured carousel (client component) ────────────── */}
-        <FeaturedCarousel />
+        <FeaturedCarouselWithModal />
 
         {/* ── SSR: About Islamabad real estate ─────────────────── */}
         <section className="py-16 sm:py-20 bg-muted/30">
